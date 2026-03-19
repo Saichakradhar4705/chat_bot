@@ -15,8 +15,38 @@
             margin: 0 auto;
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h1 {
             color: #1a3a8a;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        p {
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+            line-height: 1.6;
         }
 
         code {
@@ -27,6 +57,7 @@
             display: block;
             margin-top: 20px;
             font-size: 0.95rem;
+            animation: fadeInUp 0.8s ease-out 0.4s backwards;
         }
     </style>
 </head>
@@ -36,7 +67,7 @@
     <p>This page demonstrates the floating chatbot widget. You should see an ✈️ button in the <strong>bottom-right
             corner</strong>. Click it to open the AI chat!</p>
     <p>To embed this widget on <strong>any website</strong>, add this single line before <code>&lt;/body&gt;</code>:</p>
-    <code>&lt;script src="http://localhost:5000/widget.js"&gt;&lt;/script&gt;</code>
+    <code>&lt;script src="http://localhost:5001/widget.js"&gt;&lt;/script&gt;</code>
 
     <!-- The widget: just one line! -->
     <script src="/widget.js"></script>

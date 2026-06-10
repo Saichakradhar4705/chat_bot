@@ -1,820 +1,558 @@
+<!-- Banner Header -->
 <div align="center">
+  <img src="public/images/banner.png" alt="IARE Campus Assistant Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);" />
 
-# ✈️ IARE Campus Assistant
+  # ✈️ IARE Campus Assistant
+  ### *The Official AI-Powered Chatbot for the Institute of Aeronautical Engineering (IARE), Hyderabad*
 
-### *The Official AI-Powered Chatbot for IARE, Hyderabad*
+  <br/>
 
-<br/>
+  [![Node.js](https://img.shields.io/badge/Node.js-v18%2B-43853d?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Express](https://img.shields.io/badge/Express-v5-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
+  [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
+  [![License: ISC](https://img.shields.io/badge/License-ISC-blueviolet?style=for-the-badge)](https://opensource.org/licenses/ISC)
 
-[![Node.js](https://img.shields.io/badge/Node.js-v18%2B-43853d?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Express](https://img.shields.io/badge/Express-v5-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-FF6F00?style=for-the-badge&logo=google&logoColor=white)](https://aistudio.google.com/)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blueviolet?style=for-the-badge)](https://opensource.org/licenses/ISC)
+  <br/>
 
-<br/>
+  > **Instant responses. Dynamic fallback. Tailored specifically for IARE.**  
+  > Powered by **Google Gemini 2.0 Flash** with a robust, offline-capable local knowledge base fallback.  
+  > Designed to answer admissions, academic programs, placements, research, campus infrastructure, and campus life queries.
 
-> **Instant answers. Zero downtime. IARE-exclusive.**  
-> Powered by **Google Gemini 2.0 Flash** with a fully offline knowledge base as automatic fallback.  
-> Covers admissions, programs, placements, research, campus life — and much more.
-
-<br/>
-
----
-
+  ---
 </div>
+
+<br/>
 
 ## 📑 Table of Contents
 
-- [✨ Overview](#-overview)
-- [🚀 Features](#-features)
-- [🏗️ Architecture](#️-architecture)
+- [✨ Project Overview](#-project-overview)
+- [🚀 Core Features](#-core-features)
+- [🏗️ System Architecture](#-system-architecture)
 - [📂 Project Structure](#-project-structure)
-- [🛠️ Tech Stack](#️-tech-stack)
+- [🛠️ Technical Stack](#-technical-stack)
 - [📋 Prerequisites](#-prerequisites)
 - [⚡ Quick Start](#-quick-start)
 - [🔑 Environment Variables](#-environment-variables)
-- [🎛️ Modes Explained](#️-modes-explained)
+- [🎛️ Operation Modes](#-operation-modes)
+  - [🤖 Gemini AI Mode](#-gemini-ai-mode)
+  - [📚 Local Knowledge Base Mode](#-local-knowledge-base-mode)
 - [🌐 API Reference](#-api-reference)
-- [📚 Knowledge Base](#-knowledge-base)
-- [🔌 Embeddable Widget](#-embeddable-widget)
-- [🎨 Frontend & UI](#-frontend--ui)
-- [📦 Scripts](#-scripts)
-- [☁️ Deployment](#️-deployment)
+- [📚 Knowledge Base Directory](#-knowledge-base-directory)
+- [🔌 Embeddable Chat Widget](#-embeddable-chat-widget)
+- [🎨 Front-end & UI Theme](#-front-end--ui-theme)
+- [📦 Available Scripts](#-available-scripts)
+- [☁️ Deployment Options](#-deployment-options)
 - [🔒 Security Best Practices](#-security-best-practices)
 - [🧩 Extending the Knowledge Base](#-extending-the-knowledge-base)
-- [🐛 Troubleshooting](#-troubleshooting)
-- [📞 IARE Contact](#-iare-contact)
+- [🐛 Troubleshooting & FAQ](#-troubleshooting--faq)
+- [📞 IARE Contact Information](#-iare-contact-information)
 
 ---
 
-<br/>
+## ✨ Project Overview
 
-## ✨ Overview
+The **IARE Campus Assistant** is a full-stack, production-ready AI chatbot designed and built specifically for the [Institute of Aeronautical Engineering (IARE)](https://www.iare.ac.in/), Hyderabad. It acts as a **24/7 digital concierge** serving:
 
-The **IARE Campus Assistant** is a full-stack, production-ready AI chatbot built specifically for the [Institute of Aeronautical Engineering (IARE)](https://www.iare.ac.in/), Hyderabad. It serves as a **24/7 digital assistant** for:
+*   🎓 **Prospective Students:** Getting details about courses, admissions, fees, and ranks.
+*   👨‍🎓 **Current Students:** Finding exam links, portals, transport, and calendars.
+*   👪 **Parents:** Inspecting placement statistics, hostel guidelines, and contact numbers.
+*   👩‍🏫 **Faculty & Candidates:** Exploring research environments and career listings.
+*   🏛️ **Alumni:** Seeking degree verification steps and community portals.
 
-- 🎓 Prospective students exploring programs and admissions
-- 👨‍🎓 Current students checking portals, exams, and campus services
-- 👪 Parents seeking placement records, fees, and hostel info
-- 👩‍🏫 Faculty candidates looking to join IARE
-- 🏛️ Alumni accessing degree verification and social networks
-
-<br/>
-
-It operates in **two seamlessly integrated modes**:
-
-| Mode | Powered By | Cost | Works Offline? |
-|:---:|:---:|:---:|:---:|
-| 🤖 **Gemini AI** | Google Gemini 2.0 Flash | Free tier (limited) | ❌ |
-| 📚 **Local Knowledge Base** | Static TypeScript data | **Free forever** | ✅ |
-
-The system also ships with an **embeddable JavaScript widget** (`widget.js`) — add the chatbot to any external website with a **single `<script>` tag**.
-
-<br/>
+> [!NOTE]
+> The chatbot runs in two seamlessly integrated modes: **Google Gemini AI Mode** (delivering natural conversation and context retention) and a **Local Knowledge Base Mode** (using an offline, sub-millisecond keyword-matching search engine for zero-cost operation).
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
 <table>
-<tr>
-<td width="50%">
-
-### 🤖 Intelligence
-- **Dual-Mode Operation** — Gemini AI or local KB via one env flag
-- **Multi-Model Cascade** — auto-tries `gemini-2.0-flash` → `gemini-2.0-flash-lite` → `gemini-1.5-flash`
-- **Automatic Fallback** — Rate-limited? Instantly switches to local KB
-- **Multi-Turn Conversations** — Remembers last 12 turns of chat history
-- **Strict IARE Guardrails** — Refuses all off-topic questions
-
-</td>
-<td width="50%">
-
-### 🎨 Design & UX
-- **Glassmorphism Dark UI** — IARE-branded, premium feel
-- **Interactive FAQ Menu** — 30+ clickable topic chips in local mode
-- **Markdown Rendering** — Rich formatted replies with bullets & links
-- **Fully Responsive** — Desktop, tablet, and mobile support
-- **Smooth Animations** — Slide-up chat, fade transitions
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 🔌 Integration
-- **Embeddable Widget** — One `<script>` tag for any website
-- **postMessage API** — Cross-iframe secure messaging
-- **Quick-Topic Suggestions** — 8 recommended queries on input focus
-- **Auto URL Detection** — Widget finds the server URL automatically
-
-</td>
-<td>
-
-### ⚡ Performance
-- **Instant KB Responses** — Zero API latency in local mode
-- **Weighted Search Engine** — Phrase + keyword scoring for best match
-- **Hot-Reload Dev Server** — TypeScript recompiles on every save
-- **Graceful Error Handling** — User-friendly fallback messages always shown
-
-</td>
-</tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🤖 Intelligent Conversational Flow</h3>
+      <ul>
+        <li><b>Multi-Model Cascade:</b> Automatically cascades across models (<code>gemini-2.0-flash</code> ➔ <code>gemini-2.0-flash-lite</code> ➔ <code>gemini-1.5-flash</code>) to bypass temporary rate limits.</li>
+        <li><b>Graceful Fallback:</b> Automatically falls back to the local Knowledge Base if all API options are rate-limited, keeping the user interface completely functional.</li>
+        <li><b>Context Awareness:</b> Maintains conversational context by keeping track of the last 12 history turns.</li>
+        <li><b>IARE Guardrails:</b> Employs strict system prompts to block off-topic queries and prevent hallucinations of critical figures (fees, cut-offs, dates).</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🎨 Premium Design & UI</h3>
+      <ul>
+        <li><b>Glassmorphism Theme:</b> A premium dark-mode dashboard built around official IARE branding colors (Deep Navy and Crimson).</li>
+        <li><b>Frictionless UX:</b> Incorporates responsive chat elements, input-focus suggestions, and automatic links.</li>
+        <li><b>Collapsible FAQ Chips:</b> Instantly displays 30+ interactive categories in Local Mode, allowing users to browse without typing.</li>
+        <li><b>Markdown Support:</b> Dynamically renders structured headings, lists, bold text, and clickable external links in replies.</li>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🔌 Plug-and-Play Integration</h3>
+      <ul>
+        <li><b>One-Line Embedding:</b> Include the chatbot on any web page by embedding a single <code>&lt;script&gt;</code> tag.</li>
+        <li><b>Automated Script Detection:</b> The widget automatically extracts its hosting environment's domain path to route backend requests.</li>
+        <li><b>postMessage Security:</b> Employs secure, cross-frame message passing to update client page containers safely.</li>
+        <li><b>Floating Launcher:</b> Integrates a floating action bubble and suggestion cards on host websites.</li>
+      </ul>
+    </td>
+    <td width="50%" valign="top">
+      <h3>⚡ Performance & Dev Experience</h3>
+      <ul>
+        <li><b>Sub-millisecond Search:</b> Features a local query parsing engine with custom phrase-matching weights (+5 for exact phrases, +1 for key terms).</li>
+        <li><b>TypeScript Native:</b> Complete type safety across route logic, AI configuration, and the local dataset.</li>
+        <li><b>Hot Reloading:</b> Utilizes <code>ts-node-dev</code> to live-compile changes as files are edited.</li>
+        <li><b>Robust Error Boundaries:</b> Cathches API failures, network dropouts, and configuration anomalies gracefully.</li>
+      </ul>
+    </td>
+  </tr>
 </table>
-
-<br/>
 
 ---
 
-## 🏗️ Architecture
+## 🏗️ System Architecture
 
-```
-╔══════════════════════════════════════════════════════════════════╗
-║                       Browser / Client                           ║
-║                                                                  ║
-║  ┌────────────────────┐        ┌──────────────────────────────┐ ║
-║  │   index.html (SPA) │        │  widget.js (Embeddable)      │ ║
-║  │   Full chat UI     │        │  Floating bar + modal iframe  │ ║
-║  └─────────┬──────────┘        └──────────────┬───────────────┘ ║
-║            │ fetch /chat                       │ iframe + postMsg ║
-╚════════════╪═══════════════════════════════════╪═════════════════╝
-             │                                   │
-╔════════════▼═══════════════════════════════════▼═════════════════╗
-║              Express Server  —  src/server.ts                    ║
-║                     http://localhost:5000                         ║
-║                                                                  ║
-║   GET  /config        →  mode + topic list                       ║
-║   GET  /topic/:id     →  local KB answer by index                ║
-║   POST /chat          →  main message processing                 ║
-║   Static /            →  serves public/ directory                ║
-║                                                                  ║
-║  ╔══════════════════════════════════════════════════════════╗   ║
-║  ║          routes/chat.ts  (Route Handler)                 ║   ║
-║  ║  Validates input → calls askAI() → returns JSON          ║   ║
-║  ╚═══════════════════════╤══════════════════════════════════╝   ║
-║                          │                                       ║
-║  ╔═══════════════════════▼══════════════════════════════════╗   ║
-║  ║        services/openaiService.ts  (AI Brain)             ║   ║
-║  ║                                                           ║   ║
-║  ║   USE_LOCAL_KB = true?                                    ║   ║
-║  ║   ├─ YES ──▶ searchKnowledge(message)                    ║   ║
-║  ║   └─ NO  ──▶ askGemini() model cascade:                  ║   ║
-║  ║               1. gemini-2.0-flash                         ║   ║
-║  ║               2. gemini-2.0-flash-lite  (on 429)         ║   ║
-║  ║               3. gemini-1.5-flash       (on 429)         ║   ║
-║  ║               4. searchKnowledge()      (last resort)    ║   ║
-║  ╚═══════════════════════╤══════════════════════════════════╝   ║
-║                          │                                       ║
-║  ╔═══════════════════════▼══════════════════════════════════╗   ║
-║  ║       data/iareKnowledge.ts  (Knowledge Base)            ║   ║
-║  ║   30+ topics | Weighted phrase + keyword scoring         ║   ║
-║  ╚══════════════════════════════════════════════════════════╝   ║
-╚════════════════════════════╪═════════════════════════════════════╝
-                             │ (Gemini mode only)
-                    ╔════════▼════════╗
-                    ║  Google Gemini  ║
-                    ║  Free: 30 RPM   ║
-                    ║  1,500 req/day  ║
-                    ╚═════════════════╝
-```
+The client interacts with the server via direct fetch calls or via a cross-domain iframe managed by the client-side embeddable widget. Below is the end-to-end data flow structure:
 
-<br/>
+```mermaid
+graph TD
+    %% Styling
+    classDef client fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef server fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef ai fill:#ff9,stroke:#333,stroke-width:2px;
+    
+    A[Client Browser / Embeddable Widget] -->|POST /chat| B(Express Server: server.ts)
+    A -->|GET /config| B
+    A -->|GET /topic/:id| B
+    
+    B --> C{USE_LOCAL_KB or AI_PROVIDER}
+    class B server;
+    
+    C -->|true / 'local'| D[Local KB Service: iareKnowledge.ts]
+    C -->|false / 'gemini'| E[AI Service: openaiService.ts]
+    
+    E --> F[Gemini Model Cascade]
+    class E,F,G,H,I ai;
+    
+    F -->|Try 1| G[gemini-2.0-flash]
+    F -->|Try 2 on 429| H[gemini-2.0-flash-lite]
+    F -->|Try 3 on 429| I[gemini-1.5-flash]
+    
+    G -->|Success| J[Return Response to Client]
+    H -->|Success| J
+    I -->|Success| J
+    
+    G -->|Rate Limit / Error| H
+    H -->|Rate Limit / Error| I
+    I -->|All Exhausted| K[Fallback: searchKnowledge]
+    
+    K --> D
+    D -->|Match / Default Reply| J
+    
+    class A J client;
+```
 
 ---
 
 ## 📂 Project Structure
 
-```
+```bash
 ai-chatbot/
-│
-├── 📁 src/                          # Backend TypeScript source
-│   │
-│   ├── 📄 server.ts                 # Express app entry point
-│   │                                #  • Serves static files from public/
-│   │                                #  • GET /config  →  mode + topic list
-│   │                                #  • GET /topic/:id  →  KB topic by index
-│   │                                #  • Mounts the /chat router
-│   │
+├── 📁 src/                          # TypeScript Backend Source Files
+│   ├── 📄 server.ts                 # Express Entry point (serves static files, routes /config, /topic, /chat)
 │   ├── 📁 routes/
-│   │   └── 📄 chat.ts               # POST /chat handler
-│   │                                #  • Validates that `message` is present
-│   │                                #  • Calls askAI(message, history)
-│   │                                #  • Returns { reply, source } JSON
-│   │
+│   │   └── 📄 chat.ts               # Router endpoint for POST /chat (validates input & interfaces with askAI)
 │   ├── 📁 services/
-│   │   └── 📄 openaiService.ts      # Core AI brain
-│   │                                #  • askAI()        — main export
-│   │                                #  • askGemini()    — multi-model cascade
-│   │                                #  • localResponse() — KB search wrapper
-│   │                                #  • IARE system prompt & safety config
-│   │                                #  • Rate-limit detection & retry logic
-│   │
+│   │   └── 📄 openaiService.ts      # Core AI Handler (handles model cascades, safety parameters, and KB fallbacks)
 │   └── 📁 data/
-│       └── 📄 iareKnowledge.ts      # Static knowledge base
-│                                    #  • 30+ KBEntry topic objects
-│                                    #  • searchKnowledge(query)
-│                                    #  • Weighted: phrase (+5) | keyword (+1)
-│
-├── 📁 public/                       # Frontend static files (served by Express)
-│   │
-│   ├── 📄 index.html                # Main Chat SPA
-│   │                                #  • Calls /config on load to detect mode
-│   │                                #  • Gemini mode: conversational text chat
-│   │                                #  • Local mode: 30+ clickable FAQ chips
-│   │                                #  • Glassmorphism dark-mode IARE design
-│   │                                #  • Markdown rendering for bot replies
-│   │
-│   ├── 📄 widget.js                 # Self-contained embeddable widget
-│   │                                #  • Floating input bar (bottom-right)
-│   │                                #  • Quick-suggestions popup chips
-│   │                                #  • Chat modal with iframe
-│   │                                #  • postMessage cross-frame messaging
-│   │                                #  • Fully responsive (mobile: 100vw)
-│   │
-│   └── 📄 demo.html                 # Widget demo & embed-code showcase
-│
-├── 📄 .env                          # Environment variables (NOT committed)
-├── 📄 .gitignore                    # Git ignore rules
-├── 📄 package.json                  # npm scripts & dependencies
-├── 📄 tsconfig.json                 # TypeScript compiler config
-└── 📄 README.md                     # This file
+│       └── 📄 iareKnowledge.ts      # Static Knowledge Base (30+ topics & phrase-weighted matching algorithm)
+├── 📁 public/                       # Static Public Files (Served by Express)
+│   ├── 📄 index.html                # Main SPA UI (Glassmorphic chat client, handles markdown parsing)
+│   ├── 📄 widget.js                 # Universal Chat Widget Script (embeds as floating component on external sites)
+│   ├── 📄 demo.html                 # Embedded Widget Preview & Showcase Page
+│   └── 📁 images/
+│       └── 📄 banner.png            # Visual header banner asset
+├── 📄 .env                          # Local Environment Config (Excluded from git)
+├── 📄 .gitignore                    # Git Exclusion rules
+├── 📄 package.json                  # Script commands & package definitions
+├── 📄 tsconfig.json                 # TypeScript compiler layout rules
+└── 📄 README.md                     # Project Documentation (This file)
 ```
-
-<br/>
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Technical Stack
 
-<div align="center">
-
-| Layer | Technology | Version | Purpose |
-|:---:|:---:|:---:|:---|
-| **Runtime** | ![Node.js](https://img.shields.io/badge/-Node.js-43853d?logo=node.js&logoColor=white&style=flat-square) | v18+ | JavaScript runtime environment |
-| **Language** | ![TypeScript](https://img.shields.io/badge/-TypeScript-3178c6?logo=typescript&logoColor=white&style=flat-square) | ^5.9 | Type-safe backend development |
-| **Framework** | ![Express](https://img.shields.io/badge/-Express-000000?logo=express&logoColor=white&style=flat-square) | ^5.2 | HTTP server, routing, static files |
-| **AI Provider** | ![Google](https://img.shields.io/badge/-Google%20Gemini-FF6F00?logo=google&logoColor=white&style=flat-square) | 2.0 Flash | Conversational AI generation |
-| **AI SDK** | `@google/generative-ai` | ^0.24 | Official Gemini client library |
-| **Env Config** | `dotenv` | ^17 | `.env` file parsing at startup |
-| **CORS** | `cors` | ^2.8 | Cross-origin request support |
-| **Dev Server** | `ts-node-dev` | ^2.0 | Hot-reload TypeScript execution |
-| **Frontend** | Vanilla HTML/CSS/JS | — | Chat UI — no framework needed |
-
-</div>
-
-<br/>
+| Category | Technology | Version | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Runtime** | Node.js | `v18+` | Core asynchronous JavaScript/TypeScript execution environment |
+| **Language** | TypeScript | `^5.9` | Static type safety and clean development abstractions |
+| **Framework** | Express | `^5.2` | Clean routing, API handling, and static web page delivery |
+| **AI Client** | `@google/generative-ai` | `^0.24` | Official SDK wrapper to query Gemini LLM endpoints |
+| **Environment** | `dotenv` | `^17` | Loads environment keys from `.env` on app bootstrap |
+| **Security** | `cors` | `^2.8` | Domain origin configuration control for API calls |
+| **Dev Tools** | `ts-node-dev` | `^2.0` | Hot-reloading and development TypeScript-to-JS compilation |
+| **Front-end** | Vanilla HTML5 / CSS3 / ES6 | — | Ultra-fast client load-times with no bulky runtime libraries |
 
 ---
 
 ## 📋 Prerequisites
 
-Before running this project, make sure you have:
+Before running this application, confirm you have the following installed on your machine:
 
-| Requirement | Minimum | Check With |
-|:---:|:---:|:---:|
-| **Node.js** | v18+ | `node --version` |
-| **npm** | v9+ | `npm --version` |
-| **Google Account** | — | For Gemini API key |
-
-> 💡 **Heads up:** A Gemini API key is only needed for AI mode (`USE_LOCAL_KB=false`). If you set `USE_LOCAL_KB=true`, the bot works completely **offline** with no key required.
-
-<br/>
+1.  **Node.js:** Check using `node --version` (Node 18 or above recommended).
+2.  **npm:** Check using `npm --version` (npm 9 or above recommended).
+3.  **Google AI Studio Key:** (Optional for local-only testing) Retrieve a free API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
 
 ---
 
 ## ⚡ Quick Start
 
-### Step 1 — Clone the Repository
+Follow these steps to launch the application locally:
 
+### 1. Clone the Repository
 ```bash
-git clone <your-repo-url>
+git clone <repository-url>
 cd ai-chatbot
 ```
 
-### Step 2 — Install Dependencies
-
+### 2. Install Dependencies
 ```bash
 npm install
 ```
 
-Installs all packages: `express`, `cors`, `dotenv`, `@google/generative-ai` plus `typescript`, `ts-node-dev`, and type definitions.
-
-<br/>
-
-### Step 3 — Configure Environment
-
-Create a `.env` file in the project root:
-
+### 3. Setup the Environment File
+Create a `.env` file in the root directory:
 ```env
-# ─────────────────────────────────────────────────────────────
-#  Google Gemini API Key
-#  Get yours FREE at: https://aistudio.google.com/app/apikey
-#  Only required when USE_LOCAL_KB=false
-# ─────────────────────────────────────────────────────────────
-GEMINI_API_KEY=your_gemini_api_key_here
+# Google Gemini API Access (Obtain from https://aistudio.google.com/app/apikey)
+GEMINI_API_KEY=your_actual_gemini_api_key_here
 
-# ─────────────────────────────────────────────────────────────
-#  Operation Mode
-#  true  → Local KB only (free, offline, instant)
-#  false → Google Gemini AI + local KB as fallback (default)
-# ─────────────────────────────────────────────────────────────
+# Toggle Local Mode (true = Offline-only KB chips, false = AI Assistant with fallback)
 USE_LOCAL_KB=false
 
-# ─────────────────────────────────────────────────────────────
-#  AI Provider
-#  gemini → Google Gemini API (default)
-#  local  → Force local KB (same effect as USE_LOCAL_KB=true)
-# ─────────────────────────────────────────────────────────────
+# Controller setting (gemini = uses model, local = forces local KB lookup directly)
 AI_PROVIDER=gemini
 ```
 
-<br/>
-
-### Step 4 — Start the Dev Server
-
+### 4. Run the Server
 ```bash
 npm run dev
 ```
 
-You'll see:
-
-```
+The output should confirm the loaded configurations:
+```text
 [IARE Bot] 🤖 Mode: AI (provider=GEMINI)
 🚀 College AI Chatbot running on http://localhost:5000
 ```
 
-<br/>
-
-### Step 5 — Open the App
-
-| URL | What You'll See |
-|---|---|
-| `http://localhost:5000/` | 🗨️ Full chat interface |
-| `http://localhost:5000/demo.html` | 🔌 Widget demo page |
-
-<br/>
+### 5. Access the Interface
+Open your web browser and navigate to the target address:
+*   **Chat Application Interface:** [http://localhost:5000/](http://localhost:5000/)
+*   **Widget Demonstration Showcase:** [http://localhost:5000/demo.html](http://localhost:5000/demo.html)
 
 ---
 
 ## 🔑 Environment Variables
 
-| Variable | Required | Default | Description |
-|---|:---:|:---:|---|
-| `GEMINI_API_KEY` | Conditional | — | Your Gemini API key. Required only if `USE_LOCAL_KB=false`. Get one free at [aistudio.google.com](https://aistudio.google.com/app/apikey). |
-| `USE_LOCAL_KB` | No | `false` | `true` = FAQ-only mode (no AI). `false` = Gemini AI with KB fallback. |
-| `AI_PROVIDER` | No | `gemini` | `gemini` for Google Gemini, or `local` to force local KB. |
+| Parameter Name | Required? | Default Value | Description |
+| :--- | :--- | :--- | :--- |
+| `GEMINI_API_KEY` | Only in AI Mode | `""` | The authorization token for the Gemini API. |
+| `USE_LOCAL_KB` | No | `false` | Set to `true` to completely disable AI network calls and run purely off the local database. |
+| `AI_PROVIDER` | No | `gemini` | Configures the primary model provider (`gemini` or `local`). |
 
-> ⚠️ **Always restart the server** after editing `.env` — variables are read once at startup.
-
-<br/>
+> [!IMPORTANT]
+> If you make changes to your `.env` settings, you must manually restart your development process (Ctrl + C in terminal and re-run `npm run dev`) for the values to update.
 
 ---
 
-## 🎛️ Modes Explained
+## 🎛️ Operation Modes
 
 ### 🤖 Gemini AI Mode (`USE_LOCAL_KB=false`)
+This is the default operating configuration. The server processes client requests via the Google Gemini 2.0 Flash engine.
 
-The default and recommended mode for production. Uses **Google Gemini 2.0 Flash** — Google's fastest generative model.
+*   **Prompt Grounding:** Uses a customized system prompt declaring IARE facts, contact listings, research figures, and rules to refuse off-topic inquiries.
+*   **Conversation Length:** Bundles the user's message with up to the **last 12 conversation messages** in a rolling history buffer.
+*   **Model Cascading Failover:** If the primary engine returns a `429 Rate Limit` (typical for free-tier limits of 30 RPM / 1,500 requests a day), the server auto-shifts to secondary engines after a 1-second delay:
+    1.  `gemini-2.0-flash` (Primary)
+    2.  `gemini-2.0-flash-lite` (Fallback 1)
+    3.  `gemini-1.5-flash` (Fallback 2)
+    4.  Local Knowledge Base Search (Last Resort Fallback)
 
-**Request flow:**
-
-```
-User types message
-      ↓
-POST /chat  { message, history }
-      ↓
-services/openaiService.ts → askGemini()
-      ↓
-  Try gemini-2.0-flash
-    ├─ ✅ Success → return reply
-    └─ ❌ Rate limit (429) → try next model
-          ↓
-      Try gemini-2.0-flash-lite
-        ├─ ✅ Success → return reply
-        └─ ❌ Rate limit → try next model
-              ↓
-          Try gemini-1.5-flash
-            ├─ ✅ Success → return reply
-            └─ ❌ ALL exhausted → searchKnowledge(message)
-                                   (local KB fallback, user informed)
-```
-
-**Key facts:**
-- Last **12 turns** of conversation history are sent for context
-- A detailed **IARE system prompt** grounds every response
-- Safety filters block harassment, hate speech, explicit & dangerous content
-- Free tier: **30 RPM / 1,500 requests per day**
-
-<br/>
+---
 
 ### 📚 Local Knowledge Base Mode (`USE_LOCAL_KB=true`)
+Designed for offline capability, high-traffic scenarios, or zero-cost hosting.
 
-For zero-cost, zero-quota, fully offline operation.
-
-**How it works:**
-1. Frontend fetches topic list from `GET /config`
-2. UI renders 30+ topics as **clickable chips** (no typing required)
-3. User clicks → `GET /topic/:id` fetches pre-written answer
-4. For typed queries, `searchKnowledge()` scores all topics and returns the best match
-
-**Weighted search scoring:**
-
-```
-User query: "what is the placement record at iare"
-
-Entry: "Placements"
-  phrases: ["placement record", "campus recruitment"] → +5 each
-  keywords: ["placement", "job", "company"]           → +1 each
-
-Score = 5 (phrase: "placement record") + 1 (keyword: "placement") = 6 ✅ WINNER
-```
-
-**Best for:** High-traffic periods, quota exhaustion, demos, or production without AI budget.
-
-<br/>
+*   **Pre-defined Interactive Chips:** On configuration fetch (`/config`), the client receives an index of 30+ core topics (About IARE, CSE, Placements, etc.) and lists them as clickable tags.
+*   **Weighted Phrase Match Algorithm:** When a query is manually entered, it is compared against the `KBEntry` definitions:
+    *   **Exact Phrases Match:** Custom phrases earn **+5 points** (e.g., matching `"placement record"`).
+    *   **Keyword Match:** Individual keywords earn **+1 point** (e.g., matching `"placement"`).
+    *   The topic with the highest score is matched. If no score threshold is met, a default help contact message is shown.
 
 ---
 
 ## 🌐 API Reference
 
-### `GET /config`
+### 1. Fetch System Settings
+Returns the active execution mode and the index of loaded topics (only when in local mode).
 
-Returns the current operating mode and (in local mode) the full list of topics.
-
-```http
-GET http://localhost:5000/config
-```
+*   **URL:** `/config`
+*   **Method:** `GET`
+*   **Headers:** `Content-Type: application/json`
 
 <details>
-<summary><b>Response — Gemini mode</b></summary>
+<summary><b>🔍 View Config Response Examples</b></summary>
 
+**Example AI Mode Response:**
 ```json
 {
   "mode": "gemini",
   "topics": []
 }
 ```
-</details>
 
-<details>
-<summary><b>Response — Local KB mode</b></summary>
-
+**Example Local Mode Response:**
 ```json
 {
   "mode": "local",
   "topics": [
-    { "id": 0, "topic": "About IARE" },
-    { "id": 1, "topic": "Computer Science and Engineering" },
-    { "id": 2, "topic": "Aeronautical Engineering" }
+    { "id": 0, "topic": "✈️ About IARE" },
+    { "id": 1, "topic": "💻 Computer Science & Engineering" },
+    { "id": 2, "topic": "💼 Placements" }
   ]
 }
 ```
 </details>
 
-<br/>
+---
 
-### `GET /topic/:id`
+### 2. Fetch Topic Content
+Retrieve the pre-compiled answer structure matching a specific ID in the Knowledge Base array.
 
-Fetches a pre-written answer for a specific knowledge base topic.
-
-```http
-GET http://localhost:5000/topic/11
-```
+*   **URL:** `/topic/:id`
+*   **Method:** `GET`
+*   **URL Params:** `id=[integer]`
 
 <details>
-<summary><b>Response (200 OK)</b></summary>
+<summary><b>🔍 View Topic Response Examples</b></summary>
 
+**Success Response (200 OK):**
 ```json
 {
-  "topic": "Placements",
-  "answer": "💼 **Placements at IARE**\n\n• 🏆 **91%** of eligible students placed...",
+  "topic": "💼 Placements",
+  "answer": "💼 **Placements at IARE**\n\n• 🏆 **91%** of eligible students placed...\n• 🏢 Top recruiters: Microsoft, Amazon, JPMorgan...",
   "source": "local"
 }
 ```
-</details>
 
-<details>
-<summary><b>Response (404 Not Found)</b></summary>
-
-```json
-{ "error": "Topic not found" }
-```
-</details>
-
-<br/>
-
-### `POST /chat`
-
-The main chat endpoint. Accepts a message and conversation history, returns a reply.
-
-```http
-POST http://localhost:5000/chat
-Content-Type: application/json
-```
-
-**Request Body:**
-
+**Failure Response (404 Not Found):**
 ```json
 {
-  "message": "What are the placement statistics at IARE?",
-  "history": [
-    { "role": "user",      "content": "Hello!" },
-    { "role": "assistant", "content": "Hi! I'm the IARE Campus Assistant..." }
-  ]
+  "error": "Topic not found"
 }
 ```
-
-| Field | Type | Required | Description |
-|---|---|:---:|---|
-| `message` | `string` | ✅ | The user's current message |
-| `history` | `array` | No | Previous turns. Each: `{ role: "user"\|"assistant", content: string }`. Last 12 used. |
-
-**Responses:**
-
-| Status | Body | When |
-|---|---|---|
-| `200 OK` | `{ reply: string, source: "gemini"\|"local" }` | Always on success |
-| `400 Bad Request` | `{ error: "Message is required." }` | Empty or missing message |
-| `500 Server Error` | `{ error: "Something went wrong..." }` | Unexpected exception |
-
-<br/>
+</details>
 
 ---
 
-## 📚 Knowledge Base
+### 3. Send Chat Query
+Submits a user message along with conversation context to get a reply.
 
-The knowledge base (`src/data/iareKnowledge.ts`) is an array of typed `KBEntry` objects covering every major aspect of IARE.
+*   **URL:** `/chat`
+*   **Method:** `POST`
+*   **Headers:** `Content-Type: application/json`
+*   **Request Body JSON:**
+    ```json
+    {
+      "message": "What is the fee structure?",
+      "history": [
+        { "role": "user", "content": "Hello!" },
+        { "role": "assistant", "content": "Hello! I am the IARE Campus Assistant..." }
+      ]
+    }
+    ```
 
-### Data Structure
+<details>
+<summary><b>🔍 View Chat Response Examples</b></summary>
 
-```typescript
-interface KBEntry {
-  topic: string;      // Display name shown in the FAQ menu
-  phrases: string[];  // Exact multi-word phrases → +5 points per match
-  keywords: string[]; // Individual words        → +1 point per match
-  answer: string;     // Pre-written Markdown answer shown to the user
+**Success Response (200 OK):**
+```json
+{
+  "reply": "For tuition details and scholarship applications, please consult the official portal...",
+  "source": "gemini"
 }
 ```
 
-### All 30+ Topics at a Glance
+**Missing Message Error (400 Bad Request):**
+```json
+{
+  "error": "Message is required."
+}
+```
+</details>
+
+---
+
+## 📚 Knowledge Base Directory
+
+The offline repository `src/data/iareKnowledge.ts` consists of **36 distinct, pre-authorized topics** covering details about campus activities, departments, and support:
 
 <details>
-<summary><b>Click to expand the full topic list</b></summary>
+<summary><b>📁 Show All 36 Knowledge Base Topics</b></summary>
 
-| # | Topic | Key Phrases |
-|---|---|---|
-| 0 | ✈️ About IARE | about iare, what is iare, history of iare |
-| 1 | 💻 Computer Science & Engineering | cse department, btech cse, ai ml, data science |
-| 2 | ✈️ Aeronautical Engineering | aeronautical engineering, uav, wind tunnel |
-| 3 | 📡 Electronics & Communication Engg. | ece department, vlsi, embedded systems |
-| 4 | ⚡ Electrical & Electronics Engg. | eee department, power systems, drives |
-| 5 | ⚙️ Mechanical Engineering | mechanical engineering, manufacturing |
-| 6 | 🏗️ Civil Engineering | civil engineering, structural engineering |
-| 7 | 🎓 MBA Program | mba program, business administration, icet |
-| 8 | 🎓 M.Tech Programs | m.tech, gate admission, pgcet |
-| 9 | 🔬 Ph.D Program | phd, doctoral, research degree |
-| 10 | 📝 Admissions | how to apply, admission process, eamcet rank |
-| 11 | 💼 Placements | placement record, campus recruitment, top companies |
-| 12 | 🏭 Internships | summer internship, industrial training, isro |
-| 13 | 📚 Library | central library, digital library, ilms |
-| 14 | 🏫 Campus Facilities | smart classroom, wifi on campus, infrastructure |
-| 15 | 🚌 Bus and Transport | college bus, bus routes, track bus, live gps |
-| 16 | 🔬 Research and Innovation | research centers, funded projects, startup park |
-| 17 | 📞 Contact IARE | contact iare, phone number, email address |
-| 18 | 🏆 Rankings and Accreditation | nirf ranking, naac grade, nba accreditation |
-| 19 | 💰 Fees and Scholarships | fee structure, tuition fees, scholarship amount |
-| 20 | 📅 Exams, Results & Student Portals | exam schedule, samvidha login, student portal |
-| 21 | 🎉 Student Life and Clubs | student clubs, cultural fest, nss, sports |
-| 22 | 🖥️ Online Portals & e-Learning | online learning, swayam, nptel, iare videos |
-| 23 | 🆘 Women's Helpline & Safety | women helpline, 24x7 helpline, grievance |
-| 24 | 🎓 Alumni | iare alumni, degree verification, alumni network |
-| 25 | 👩‍🏫 Faculty and Careers at IARE | faculty jobs, teaching jobs, faculty recruitment |
-| 26 | 🏠 Hostel and Accommodation | hostel facility, boys hostel, girls hostel |
-| 27 | ⚽ Sports & Physical Education | sports at iare, cricket, basketball, gym |
-| 28 | 🚫 Anti-Ragging Policy | anti ragging, ragging complaint, ugc helpline |
-| 29 | 📅 Academic Calendar | academic calendar, semester dates, holiday list |
-| 30 | 🎓 Scholarships & Financial Aid | government scholarship, sc st scholarship, epass |
-| 31 | 📋 Grievance Redressal | grievance cell, student complaint, ombudsman |
-| 32 | 🤝 NSS & Social Responsibility | nss at iare, blood donation, community service |
-| 33 | 🤝 Industry Collaboration & MoUs | mou companies, corporate partnerships |
-| 34 | 🛠️ Skill Development & Certifications | aws certification, soft skills, aptitude |
-| 35 | ⭐ NAAC Assessment Details | naac grade, naac a++, iqac |
+| ID | Title / Topic | Primary Search Phrases |
+| :--- | :--- | :--- |
+| **0** | ✈️ About IARE | about iare, what is iare, history of iare |
+| **1** | 💻 Computer Science & Engineering | cse department, btech cse, ai ml, data science |
+| **2** | ✈️ Aeronautical Engineering | aeronautical engineering, uav, wind tunnel |
+| **3** | 📡 Electronics & Communication Engg. | ece department, vlsi, embedded systems |
+| **4** | ⚡ Electrical & Electronics Engg. | eee department, power systems, drives |
+| **5** | ⚙️ Mechanical Engineering | mechanical engineering, manufacturing |
+| **6** | 🏗️ Civil Engineering | civil engineering, structural engineering |
+| **7** | 🎓 MBA Program | mba program, business administration, icet |
+| **8** | 🎓 M.Tech Programs | m.tech, gate admission, pgcet |
+| **9** | 🔬 Ph.D Program | phd, doctoral, research degree |
+| **10** | 📝 Admissions | how to apply, admission process, eamcet rank |
+| **11** | 💼 Placements | placement record, campus recruitment, top companies |
+| **12** | 🏭 Internships | summer internship, industrial training, isro |
+| **13** | 📚 Library | central library, digital library, ilms |
+| **14** | 🏫 Campus Facilities | smart classroom, wifi on campus, infrastructure |
+| **15** | 🚌 Bus and Transport | college bus, bus routes, track bus, live gps |
+| **16** | 🔬 Research and Innovation | research centers, funded projects, startup park |
+| **17** | 📞 Contact IARE | contact iare, phone number, email address |
+| **18** | 🏆 Rankings and Accreditation | nirf ranking, naac grade, nba accreditation |
+| **19** | 💰 Fees and Scholarships | fee structure, tuition fees, scholarship amount |
+| **20** | 📅 Exams, Results & Student Portals | exam schedule, samvidha login, student portal |
+| **21** | 🎉 Student Life and Clubs | student clubs, cultural fest, nss, sports |
+| **22** | 🖥️ Online Portals & e-Learning | online learning, swayam, nptel, iare videos |
+| **23** | 🆘 Women's Helpline & Safety | women helpline, 24x7 helpline, grievance |
+| **24** | 🎓 Alumni | iare alumni, degree verification, alumni network |
+| **25** | 👩‍🏫 Faculty and Careers at IARE | faculty jobs, teaching jobs, faculty recruitment |
+| **26** | 🏠 Hostel and Accommodation | hostel facility, boys hostel, girls hostel |
+| **27** | ⚽ Sports & Physical Education | sports at iare, cricket, basketball, gym |
+| **28** | 🚫 Anti-Ragging Policy | anti ragging, ragging complaint, ugc helpline |
+| **29** | 📅 Academic Calendar | academic calendar, semester dates, holiday list |
+| **30** | 🎓 Scholarships & Financial Aid | government scholarship, sc st scholarship, epass |
+| **31** | 📋 Grievance Redressal | grievance cell, student complaint, ombudsman |
+| **32** | 🤝 NSS & Social Responsibility | nss at iare, blood donation, community service |
+| **33** | 🤝 Industry Collaboration & MoUs | mou companies, corporate partnerships |
+| **34** | 🛠️ Skill Development & Certifications | aws certification, soft skills, aptitude |
+| **35** | ⭐ NAAC Assessment Details | naac grade, naac a++, iqac |
 
 </details>
 
-<br/>
-
 ---
 
-## 🔌 Embeddable Widget
+## 🔌 Embeddable Chat Widget
 
-The `public/widget.js` is a **zero-dependency, self-contained chatbot widget** that can be embedded in any website.
+You can deploy the chatbot as a floating widget on any external page. It handles screen responsiveness and interfaces securely with the chatbot server.
 
-### Embed in 1 Line
-
+### Simple Installation
+Include this script tag right before the closing `</body>` tag on your website:
 ```html
-<!-- Add this before </body> in any HTML page -->
-<script src="https://your-deployed-domain.com/widget.js"></script>
+<script src="https://your-deployed-chatbot-domain.com/widget.js"></script>
 ```
 
-> Replace `your-deployed-domain.com` with your deployed URL. No configuration needed — the widget auto-detects the server origin from its own `<script src>` attribute.
+> [!TIP]
+> **Dynamic Host Detection:** The widget automatically detects the domain it was loaded from. You do not need to configure an API endpoint parameter inside the widget code.
 
-<br/>
-
-### What Appears on the Page
-
-```
-┌─────────────────────────────────────────────┐  ← Suggestions popup
-│  💡 QUICK QUESTIONS                          │     (appears on focus)
-│  [✈️ Aeronautical]  [📝 Admission]          │
-│  [💼 Placements]    [🏫 Campus]              │
-└─────────────────────────────────────────────┘
-
-┌──────────────────────────────────────────────┐  ← Floating input bar
-│ ✈️ │  Ask IARE anything...         │  ➤  │  │     (fixed bottom-right)
-└──────────────────────────────────────────────┘
-```
-
-When the user sends a message, the chat modal slides up:
-
-```
-┌──────────────────────────────┐
-│  ✈️  IARE Campus Assistant  ▼│  ← Modal header (click ▼ to close)
-│  ● Online · Powered by AI    │
-├──────────────────────────────┤
-│                              │
-│   [iframe → index.html]      │  ← Full chat UI embedded inside
-│                              │
-└──────────────────────────────┘
-```
-
-### Widget Behavior Summary
-
-| Event | Action |
-|---|---|
-| Click the input field (empty) | Opens the chat modal |
-| Type a message + `Enter` | Opens modal + sends message |
-| Click ✈️ logo | Opens the chat modal |
-| Click a suggestion chip | Fills input + opens modal + sends |
-| Click `▼` button | Closes modal |
-| Click backdrop overlay | Closes modal |
-| Press `Escape` | Closes modal or hides suggestions |
-
-### Quick-Topic Suggestions
-
-| Chip | Query Sent |
-|---|---|
-| ✈️ Aeronautical Engineering | Aeronautical Engineering |
-| 📝 Admission process | Admission process |
-| 💼 Placement record | Placement record |
-| 🏫 Campus facilities | Campus facilities |
-| 🔬 Research opportunities | Research opportunities |
-| 📞 Contact IARE | Contact IARE |
-| 🎓 M.Tech & MBA | M.Tech & MBA |
-| 🚌 Bus facility | Bus facility |
-
-<br/>
+### Widget Interface Mechanics
+1.  **Floating Bubble launcher:** Sits in the bottom-right corner of the page.
+2.  **Focus Recommendations:** Clicking into the widget's input bar displays 8 primary suggestion cards (Aeronautical, Placements, Contact, etc.).
+3.  **Cross-Origin Iframe:** Triggering a question slides up a full panel rendering the application's `/` path within a secure iframe.
+4.  **postMessage Interface:** Secure messages are sent between the widget wrapper and the iframe to resize panels, initialize chats, and forward clicks.
 
 ---
 
-## 🎨 Frontend & UI
+## 🎨 Front-end & UI Theme
 
-### `public/index.html` — Main Chat SPA
-
-The primary user interface. On every page load, it:
-
-1. Calls `GET /config` to determine mode
-2. **Gemini mode** → renders a text input, sends `POST /chat` with message + history, renders bot replies as Markdown
-3. **Local mode** → renders all 30+ topics as interactive chips; clicking one calls `GET /topic/:id`
-
-**Design highlights:**
-- 🎨 **Dark glassmorphism** — `rgba` translucent panes with `backdrop-filter: blur()`
-- 🎨 IARE brand — Deep Navy `#003087` and Crimson `#B8001C`
-- 🔤 **Inter** typeface from Google Fonts
-- 💬 Message bubbles with smooth slide-in animations
-- 🏷️ Source badge on every bot reply: `AI` or `Local KB`
-- 📱 Fully responsive layout
-
-### `public/demo.html` — Widget Showcase
-
-A companion demo page at `/demo.html` that:
-- Embeds `widget.js` for live testing
-- Shows the one-line embed code snippet
-- Features animated headings to demonstrate the widget
-
-<br/>
+The front-end design is clean and responsive:
+*   **Visual Style:** Modern glassmorphism with high-contrast translucent cards, rounded containers, and animated border shadows.
+*   **Typography:** The clean **Inter** typeface loaded via Google Fonts.
+*   **Official Colors:** Deep Navy (`#003087`) matching institutional trust and Crimson (`#B8001C`) highlighting aviation strength.
+*   **Smart Icons:** Dynamically maps matching emojis to selected topics (e.g. 🎓 for education, 💼 for jobs).
+*   **Indicator Badges:** Every response is labeled with either `AI` or `Local KB` to indicate where the response originated.
 
 ---
 
-## 📦 Scripts
+## 📦 Available Scripts
+
+Execute the following commands in the root of your project:
 
 ```bash
-# ─────────────────────────────────────────────────────
-#  Development — start with hot-reload (recommended)
-#  TypeScript is re-compiled automatically on save
-# ─────────────────────────────────────────────────────
+# Start the development server with live recompilation and hot reload
 npm run dev
 
-# ─────────────────────────────────────────────────────
-#  Build — compile TypeScript → dist/
-#  Creates dist/server.js ready for production
-# ─────────────────────────────────────────────────────
+# Compile TypeScript source code into production JavaScript in the dist/ folder
 npm run build
 
-# ─────────────────────────────────────────────────────
-#  Start — run the compiled production build
-#  Requires 'npm run build' to be run first
-# ─────────────────────────────────────────────────────
+# Start the compiled production build from the dist/ server folder
 npm start
 ```
 
-**Typical workflow:**
+---
 
-```
-Development  →  npm run dev
-Testing      →  npm run build && npm start
-Production   →  npm start  (after build in CI/CD)
-```
+## ☁️ Deployment Options
 
-<br/>
+### 🚂 Option 1: Railway (Recommended)
+1.  Sign in at [railway.app](https://railway.app).
+2.  Select **New Project** ➔ **Deploy from GitHub repo**.
+3.  Add the environment variables in the variables tab:
+    *   `GEMINI_API_KEY` = `your_gemini_key`
+    *   `USE_LOCAL_KB` = `false`
+    *   `AI_PROVIDER` = `gemini`
+4.  Deploy. Railway automatically handles build settings via `package.json`.
 
 ---
 
-## ☁️ Deployment
+### ⭐ Option 2: Render
+1.  Create a web service pointing to your GitHub repository on [render.com](https://render.com).
+2.  Configure the environment settings:
+    *   **Runtime:** `Node`
+    *   **Build Command:** `npm install && npm run build`
+    *   **Start Command:** `npm start`
+3.  Add your keys under the **Environment Variables** section.
 
-### ⭐ Option 1 — Render *(Free, Recommended)*
+---
 
-The easiest way to deploy — no credit card required.
-
-1. Push your code to GitHub (ensure `.env` is in `.gitignore`)
-2. Go to [render.com](https://render.com) → **New → Web Service**
-3. Connect your GitHub repo
-4. Set the following:
-   ```
-   Build Command:  npm install && npm run build
-   Start Command:  npm start
-   Environment:    Node
-   ```
-5. Add environment variables in the Render dashboard:
-   | Key | Value |
-   |---|---|
-   | `GEMINI_API_KEY` | `your_key_here` |
-   | `USE_LOCAL_KB` | `false` |
-   | `AI_PROVIDER` | `gemini` |
-6. Click **Deploy** ✅
-
-Your chatbot will be live at `https://your-service-name.onrender.com`
-
-<br/>
-
-### 🚂 Option 2 — Railway
-
-```bash
-npm install -g @railway/cli
-railway login
-railway init
-railway variables set GEMINI_API_KEY=your_key_here
-railway variables set USE_LOCAL_KB=false
-railway up
-```
-
-<br/>
-
-### 🖥️ Option 3 — VPS / Ubuntu Server (PM2 + NGINX)
-
+### 🖥️ Option 3: VPS Server (NGINX Reverse Proxy + PM2)
 <details>
-<summary><b>Click to expand full VPS setup guide</b></summary>
+<summary><b>🛠️ View Complete Ubuntu Setup Steps</b></summary>
 
-**1. Install Node.js**
+**1. Install Node.js runtime:**
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
 
-**2. Clone, install & build**
+**2. Setup code & build:**
 ```bash
-git clone <your-repo-url>
+git clone <repository-url>
 cd ai-chatbot
-npm install && npm run build
+npm install
+npm run build
 ```
 
-**3. Create `.env`**
-```bash
-nano .env   # Paste your keys and save
-```
+**3. Set credentials:**
+Create a `.env` file containing your production settings.
 
-**4. Run with PM2**
+**4. Daemonize the process using PM2:**
 ```bash
 sudo npm install -g pm2
 pm2 start dist/server.js --name iare-chatbot
-pm2 save && pm2 startup
+pm2 save
+pm2 startup
 ```
 
-**5. NGINX reverse proxy**
+**5. Setup NGINX host configuration:**
+Create a virtual host configuration:
 ```nginx
 server {
     listen 80;
-    server_name your-domain.com;
+    server_name chatbot.iare-domain.com;
+
     location / {
         proxy_pass http://localhost:5000;
         proxy_http_version 1.1;
@@ -825,203 +563,99 @@ server {
     }
 }
 ```
+Test and reload Nginx:
 ```bash
-sudo nginx -t && sudo systemctl reload nginx
+sudo nginx -t
+sudo systemctl reload nginx
 ```
 
-**6. Free HTTPS with Certbot**
+**6. Secure with HTTPS via Certbot:**
 ```bash
 sudo apt install certbot python3-certbot-nginx
-sudo certbot --nginx -d your-domain.com
+sudo certbot --nginx -d chatbot.iare-domain.com
 ```
-
 </details>
-
-<br/>
-
-### ☁️ Option 4 — Azure App Service
-
-```bash
-npm run build
-az login
-az webapp up --runtime NODE:20-lts --sku F1 --name iare-chatbot
-az webapp config appsettings set \
-  --name iare-chatbot \
-  --settings GEMINI_API_KEY=your_key USE_LOCAL_KB=false AI_PROVIDER=gemini
-```
-
-<br/>
 
 ---
 
 ## 🔒 Security Best Practices
 
-| ✅ Practice | Why It Matters |
-|---|---|
-| **Never commit `.env`** | Your API key grants billing access. Leaking it can cause unexpected charges. |
-| **Verify `.gitignore`** | Confirm `.env` is listed before every `git push` |
-| **Rotate exposed keys** | If accidentally pushed, regenerate immediately at [aistudio.google.com](https://aistudio.google.com/) |
-| **Domain-restrict your key** | In Google AI Studio, limit API key to your deployed domain |
-| **Use HTTPS in production** | Render / Railway provide TLS automatically. On VPS use Certbot. |
-| **Add rate-limiting middleware** | Prevent bot abuse in production with `express-rate-limit` |
+> [!CAUTION]
+> **Keep your keys secret!** Never check your `.env` file into GitHub or Git version tracking. If an API key is leaked, immediately delete/deactivate it in Google AI Studio and provision a replacement.
 
-**Adding rate limiting (example):**
+*   **API Restriction:** If using Gemini in production, restrict key consumption to your domain origin within your Google Cloud dashboard.
+*   **Limiting Abuse:** Install rate-limit middleware to prevent denial-of-service attempts. Example:
+    ```typescript
+    import rateLimit from 'express-rate-limit';
 
-```bash
-npm install express-rate-limit
-```
+    const chatLimiter = rateLimit({
+        windowMs: 15 * 60 * 1000, // 15 Minute window
+        max: 50,                   // Limit each IP to 50 queries per window
+        message: { error: "Too many attempts from this IP address. Please try again later." }
+    });
 
-```typescript
-import rateLimit from 'express-rate-limit';
-
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,  // 15 minutes
-  max: 100,                   // 100 requests per IP per window
-  message: { error: 'Too many requests. Please try again later.' }
-});
-
-app.use('/chat', limiter);
-```
-
-<br/>
+    app.use('/chat', chatLimiter);
+    ```
 
 ---
 
 ## 🧩 Extending the Knowledge Base
 
-Add new IARE topics without touching any AI or server logic.
+To add or update answers in the local database:
 
-### Step 1 — Add a `KBEntry` to `iareKnowledge.ts`
-
+### 1. Add Entry to Knowledge Base Array
+Open [src/data/iareKnowledge.ts](file:///c:/iare_chart%20bot/ai-chatbot/src/data/iareKnowledge.ts) and append a new `KBEntry` object:
 ```typescript
-// src/data/iareKnowledge.ts → add inside the iareKnowledge array
-
 {
-  topic: "Health Center",
+  topic: "Scholarship Scheme",
   phrases: [
-    "health center",
-    "medical facility at iare",
-    "campus doctor",
-    "first aid at iare"
+    "scholarship scheme",
+    "financial support",
+    "fee concession"
   ],
   keywords: [
-    "health", "medical", "doctor", "nurse",
-    "clinic", "sick", "hospital", "ambulance", "medicine"
+    "scholarship", "help", "money", "concession", "epass", "fee"
   ],
-  answer: `🏥 **Health Center at IARE**
-
-IARE maintains an on-campus health center available for all students and staff.
-
-• 👨‍⚕️ Doctor available during college hours
-• 🩹 First aid & emergency care
-• 🏨 Tie-ups with nearby hospitals for serious cases
-
-📞 +91 9154379624 (8 AM – 8 PM)
-📧 info@iare.ac.in`
+  answer: `🎓 **Scholarships at IARE**\n\nStudents are eligible for Government and Private scholarships...\n\n• **e-Pass Portal:** Apply online at TS e-pass.\n• **Merit Awards:** Top performers receive fee waivers.`
 }
 ```
 
-### Step 2 — (Optional) Register an Icon
-
-In `public/index.html`, find the `ICON_MAP` object and add:
-
+### 2. Map Icon Emojis
+In [public/index.html](file:///c:/iare_chart%20bot/ai-chatbot/public/index.html), add your topic mapping inside the `ICON_MAP` constant:
 ```javascript
 const ICON_MAP = {
-  // ... existing entries ...
-  "Health Center": "🏥",
+  // ... existing entries
+  "Scholarship Scheme": "🎓",
 };
 ```
 
-### Tips for Writing Great KB Entries
+---
 
-| Tip | Details |
-|---|---|
-| 📌 **Phrases = exact queries** | Use 2–4 word expressions users would literally type |
-| 🔍 **Keywords = synonyms** | Cover alternate words and related terms generously |
-| ✍️ **Format answers in Markdown** | Use `**bold**`, `•` bullets, emojis, and link URLs |
-| 📞 **Always include a contact** | Give a phone number or URL as a next step |
-| ⚠️ **Never invent specifics** | Don't hardcode fees or cut-offs — direct users to call instead |
+## 🐛 Troubleshooting & FAQ
 
-<br/>
+*   **Q: The server fails to start with compilation errors.**
+    *   *A:* Run `npm install` again to clean out missing typing packages, and execute `npm run build` to verify the compiler.
+*   **Q: The chatbot keeps responding with "AI temporarily unavailable."**
+    *   *A:* This indicates all listed Gemini models are rate-limited or the API key is incorrect. Verify the `GEMINI_API_KEY` variable in your `.env` file. You can toggle `USE_LOCAL_KB=true` to run offline while debugging.
+*   **Q: The widget isn't loading on my external site.**
+    *   *A:* Verify your chatbot server is deployed and public. Ensure the `CORS` configuration on the Express backend allows requests from your host site's origin.
 
 ---
 
-## 🐛 Troubleshooting
+## 📞 IARE Contact Information
 
-<details>
-<summary><b>🔴 Server won't start / TypeScript errors</b></summary>
+For administrative questions concerning the Institute of Aeronautical Engineering:
 
-```bash
-npm install         # Reinstall all dependencies
-npm run build       # Check for compile errors
-```
-</details>
-
-<details>
-<summary><b>🔴 Bot replies "AI temporarily unavailable"</b></summary>
-
-You've hit Gemini's free tier limits (30 RPM / 1,500 req/day).
-- Wait a few minutes and try again
-- Or switch to local mode:
-  ```env
-  USE_LOCAL_KB=true
-  ```
-  Then restart the server.
-</details>
-
-<details>
-<summary><b>🔴 Frontend not loading / "can't connect"</b></summary>
-
-- Make sure the server is running: `npm run dev`
-- Open `http://localhost:5000` — not port 3000 or 8080
-- Check your firewall isn't blocking port 5000
-</details>
-
-<details>
-<summary><b>🔴 Widget not showing on my external site</b></summary>
-
-- The server must be **publicly accessible** — `localhost` won't work for external sites
-- Point `<script src>` to your deployed URL, e.g.:
-  ```html
-  <script src="https://your-domain.com/widget.js"></script>
-  ```
-- Check the browser console for CORS errors
-</details>
-
-<details>
-<summary><b>🔴 `.env` changes have no effect</b></summary>
-
-Variables are loaded once at startup. After any `.env` change:
-```bash
-# Stop the server (Ctrl + C), then restart:
-npm run dev
-```
-</details>
-
-<br/>
+| Channel | Contact Point |
+| :---: | :--- |
+| 🌐 **Official Website** | [https://www.iare.ac.in/](https://www.iare.ac.in/) |
+| 📞 **Admissions Office** | **+91 9154379624** *(Available 8:00 AM – 8:00 PM)* |
+| 📧 **General Inquiries** | [info@iare.ac.in](mailto:info@iare.ac.in) |
+| 💼 **Placements Desk** | [pat@iare.ac.in](mailto:pat@iare.ac.in) · **9491602701** |
+| 📅 **Appointments** | [IARE Online Appointment Form](https://iare.ac.in/appointmentform.html) |
+| 📍 **Campus Address** | Dundigal – 500 043, Hyderabad, Telangana, India |
 
 ---
-
-## 📞 IARE Contact
-
 <div align="center">
-
-For questions about **IARE** (the institution, not this codebase):
-
-| | |
-|:---:|:---|
-| 🌐 | [https://www.iare.ac.in/](https://www.iare.ac.in/) |
-| 📞 | **+91 9154379624** *(Admissions, 8 AM – 8 PM)* |
-| 📧 | info@iare.ac.in |
-| 💼 | pat@iare.ac.in · 9491602701 *(Placements)* |
-| 📅 | [Book an Appointment](https://iare.ac.in/appointmentform.html) |
-| 📍 | Dundigal – 500 043, Hyderabad, Telangana, India |
-
-<br/>
-
----
-
-<sub>Built with ❤️ for IARE students, parents, and faculty · Powered by Google Gemini AI</sub>
-
-</div>#   c h a t _ b o t  
- 
+  <sub>Built with ❤️ for the IARE Community · Powered by Google Gemini AI</sub>
+</div>
